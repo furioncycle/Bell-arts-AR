@@ -17,16 +17,16 @@
         <a-entity id="primaryCamera" position="0 0 3.8">
             <a-camera></a-camera>
         </a-entity>
-
-        <a-entity id="secondaryCamera" position="2 1.8 4.8" rotation="-20 45 0">
-            <a-camera></a-camerA>
-        </a-entity>
+        let videoElement;
+        navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video:true,
+        }).then(stream=> {
+        videoElement = document.createElement('video');
+        videoElement.srcObject = stream;
+        videoElement.muted=true;
+        videoElement.play();});
         </a-scene>
 
-        <div id="spectatprDiv" style="height:240px; width:320px;"></div>
-        <div hidden id="webcam" style="height:480px; width:640px">
-            <video autoplay="true" id="videoElement" class="videoInsert" width="640" height="480"></video>
-        </div>
-        <div id="composite" style="height:480px; width:640px;"></div>
     </body>
 </html>
