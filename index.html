@@ -4,13 +4,29 @@
         <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
        <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
        <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+       <style type="text/css">
+        #hmdDiv {z-index:100; top:0; left:0; }
+        #composite{ position:absolute; z-index: -100; top:0; left:340px;
+       </style>
     </head>
     <body>
         <a-scene stats embedded arjs='trackingMethod: best; debugUIEnabled: false'>
             <a-marker preset="hiro">
             <a-box position="0 0 0" rotation="0 0 0" material="color: blue;"></a-box>
         </a-marker>
-        <a-entity camera></a-entity>
+        <a-entity id="primaryCamera" position="0 0 3.8">
+            <a-camera></a-camera>
+        </a-entity>
+
+        <a-entity id="secondaryCamera" position="2 1.8 4.8" rotation="-20 45 0">
+            <a-camera></a-camerA>
+        </a-entity>
         </a-scene>
+
+        <div id="spectatprDiv" style="height:240px; width:320px;"></div>
+        <div hidden id="webcam" style="height:480px; width:640px">
+            <video autoplay="true" id="videoElement" class="videoInsert" width="640" height="480"></video>
+        </div>
+        <div id="composite" style="height:480px; width:640px;"></div>
     </body>
 </html>
