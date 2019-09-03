@@ -5,12 +5,10 @@
 </head>
 
 <body>
-  <a-scene>
-      <a-entity
-        text-geometry="value: Hello, World!"
-        material="color: #66E1B4"
-        position="0 2 -4"
-      ></a-entity>
-      <a-sky color="#5F818A"></a-sky>
-    </a-scene>
+  <a-scene embedded arjs="sourceType: webcam;">
+      <a-marker preset="hiro">
+          <a-entity obj-model="obj: url(Untitled.stl.obj);"></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+  </a-scene>
 </body>
