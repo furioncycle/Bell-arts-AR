@@ -8,7 +8,8 @@
 <body>
   <a-scene embedded arjs="sourceType: webcam;">
       <a-marker preset="hiro">
-          <a-entity gtlf-model-next="src: url(https://furioncycle.github.io/Bell-arts-AR/scene.gltf);"></a-entity>
+          <a-entity gtlf-model-next="src: url(https://furioncycle.github.io/Bell-arts-AR/scene.gltf) scale= 0.65 0.65 0.65"></a-entity>
+          <a-animation dur="4000" attribute="rotation" to="0 36 0" repeat="indefinite"></a-animation>
       </a-marker>
       <a-entity camera></a-entity>
   </a-scene>
