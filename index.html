@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Cube</title>
-	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 
-</head>
-<body style="background-color: #000;">
-<a-scene>
-  <a-assets>
-    <a-asset-item id="cube" src="./assets/bsquare.gltf"></a-asset-item>
-   </a-assets>
-	<a-entity
-		 gltf-model="#cube"
-		 position="0 1.43 -3"
-		 scale="0.65 0.65 0.65">
-	  <a-animation
-		   dur="4000"
-		   attribute="rotation"
-		   to="0 360 0"
-		   repeat="indefinite">
-	    </a-animation>
-	</a-entity>
-</a-scene>
-</body>
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+        <a-assets>
+            <a-asset-item id="3d-text" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker type='barcode' value='7'>
+            <a-box position='0 0.5 0' color="yellow"></a-box>
+        </a-marker>
+
+        <a-marker id="animated-marker" type='barcode' value='6'>
+            <a-entity
+                gltf-model="#3d-text"
+                scale="2">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 </html>
