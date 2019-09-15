@@ -9,7 +9,7 @@
    <body style='margin: 0px;overflow: hidden'>
        <a-scene embedded arjs='sourceType: webcam'>
            <a-marker preset='hiro'>
-               <a-entity obj-model="obj: 3dtext_test.obj; mtl: 3dtext_test.mtl"></a-entity>
+               <a-entity obj-model="obj: 3dtext_test.obj; mtl: 3dtext_test.mtl" animation="property: rotation; to: 0 360 0; dur: 10000; loop: true"></a-entity>
                <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>
            </a-marker>
            <a-entity camera></a-entity>
