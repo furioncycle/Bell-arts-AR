@@ -1,8 +1,8 @@
 AFRAME.registerComponent("listener", {
     init: function(){
         this.target = document.querySelector('#target');
-        this.prevPostion = null;
         this.prevRotation = null;
+        this.prevPostion = null;
     },
     tick: function() {
         if(this.el.object3D.visible){
@@ -13,8 +13,10 @@ AFRAME.registerComponent("listener", {
                 this.target.object3D.rotation.setFromVector3(rot)
             }
             else{
-                this.target.setAttribute('postion',this.el.getAttribute('postion'))
-                this.target.setAttribute('rotation',this.el.getAttribtue('rotation'))
+                var initialPostion = this.el.getAttribute('postion')
+                var initialRotation = this.el.getAttribute('rotation')
+                this.target.setAttribute('postion',initialPostion)
+                this.target.setAttribute('rotation', initialRotation)
             }
             this.prevPostion = this.el.object3D.postion
             this.prevRotation = this.el.object3D.rotation
