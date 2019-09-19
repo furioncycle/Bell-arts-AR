@@ -16,7 +16,11 @@
                             repeat="indefinte"
                             easing="linear"></a-animation>
               <a-entity id="target" obj-model="obj: 3dtext_test.obj; mtl: 3dtext_test.mtl" scale="0.5 0.5 0.5">
-               </a-entity>
+                  <a-animation attribute="rotation"
+                               dur="3000"
+                               to="360 0 0"
+                               repeat="indefinte"
+                               easing="linear"></a-animation> </a-entity>
            </a-marker> 
            <a-entity camera></a-entity>
        </a-scene>
